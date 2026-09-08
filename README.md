@@ -109,4 +109,4 @@ It is the kind of work a data analyst does when the business asks a simple quest
 
 ---
 
-⭐ If you’re a recruiter or reviewer: open `Book1.twb` in Tableau, then skim the CSV folder to see the SQL-backed answers behind the charts.
+⭐ If you’re a recruiter or reviewer: open `Sunlife Analytics.twb` in Tableau, then skim the CSV folder to see the SQL-backed answers behind the charts.
