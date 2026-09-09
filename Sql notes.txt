@@ -1,0 +1,218 @@
+SQL formulas used to extract the CSV files
+Sun Life Insurance Analytics project
+Database: sunlife (PostgreSQL)
+Main tables: policies, province_age_profile, life_insurance_data
+
+How to use:
+1. Open pgAdmin Query Tool
+2. Run one query at a time
+3. Export the result as CSV (same names as below)
+
+
+============================================================
+1) total policies,total lapsed,lapse rate pct,avg premium,annual premium risk.csv
+============================================================
+
+SELECT
+    COUNT(*) AS total_policies,
+    SUM(lapsed) AS total_lapsed,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapsed_rate_pct,
+    ROUND(100.0 * (COUNT(*) - SUM(lapsed))::numeric / COUNT(*), 2) AS retention_rate_pct,
+    ROUND(AVG(premium_monthly)::numeric, 2) AS avg_premium,
+    ROUND(SUM(CASE WHEN lapsed = 1 THEN premium_monthly * 12 ELSE 0 END)::numeric, 2)
+        AS annual_premium_risk
+FROM policies;
+
+
+============================================================
+2) annual_premium_risk but grouped by product_type.csv
+============================================================
+
+SELECT
+    product_type,
+    COUNT(*) AS policies,
+    SUM(lapsed) AS lapsed_policies,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapse_rate_pct,
+    ROUND(AVG(premium_monthly)::numeric, 2) AS avg_premium,
+    ROUND(SUM(CASE WHEN lapsed = 1 THEN premium_monthly * 12 ELSE 0 END)::numeric, 2)
+        AS annual_premium_risk_by_product_type
+FROM policies
+GROUP BY product_type
+ORDER BY lapse_rate_pct DESC;
+
+
+============================================================
+3) lapse rate shown by province.csv
+============================================================
+
+SELECT
+    province,
+    COUNT(*) AS number_of_policies,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapsed_rate_pct,
+    ROUND(AVG(age)::numeric, 1) AS avg_age,
+    ROUND(AVG(premium_monthly)::numeric, 2) AS avg_premium
+FROM policies
+GROUP BY province
+ORDER BY lapsed_rate_pct DESC;
+
+
+============================================================
+4) lapse rate shown by payment mode.csv
+============================================================
+
+SELECT
+    payment_mode,
+    COUNT(*) AS number_of_policies,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapse_rate_pct,
+    ROUND(AVG(premium_monthly)::numeric, 2) AS avg_premium,
+    ROUND(AVG(missed_payments_12m)::numeric, 2) AS avg_missed_payments
+FROM policies
+GROUP BY payment_mode
+ORDER BY lapse_rate_pct DESC;
+
+
+============================================================
+5) lapse rate shown by smoking status.csv
+============================================================
+
+SELECT
+    CASE
+        WHEN smoker = 1 THEN 'smoker'
+        ELSE 'non-smoker'
+    END AS smoking_status,
+    COUNT(*) AS policies,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapse_rate_pct,
+    ROUND(AVG(premium_monthly)::numeric, 2) AS avg_premium
+FROM policies
+GROUP BY
+    CASE
+        WHEN smoker = 1 THEN 'smoker'
+        ELSE 'non-smoker'
+    END
+ORDER BY lapse_rate_pct DESC;
+
+
+============================================================
+6) lapse rate shown by amount of missed payments.csv
+============================================================
+
+SELECT
+    missed_payments_12m,
+    COUNT(*) AS policies,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapse_rate_pct
+FROM policies
+GROUP BY missed_payments_12m
+ORDER BY missed_payments_12m;
+
+
+============================================================
+7) lapse rate by tenure band of the policy.csv
+============================================================
+
+SELECT
+    CASE
+        WHEN years_active BETWEEN 1 AND 3 THEN 'New(1-3 years)'
+        WHEN years_active BETWEEN 4 AND 8 THEN 'Mid(4-8)years'
+        ELSE 'Mature(9+ years)'
+    END AS tenure_band,
+    COUNT(*) AS policies,
+    ROUND(100.0 * AVG(lapsed), 2) AS lapse_rate_pct
+FROM policies
+GROUP BY
+    CASE
+        WHEN years_active BETWEEN 1 AND 3 THEN 'New(1-3 years)'
+        WHEN years_active BETWEEN 4 AND 8 THEN 'Mid(4-8)years'
+        ELSE 'Mature(9+ years)'
+    END
+ORDER BY lapse_rate_pct DESC;
+
+
+============================================================
+8) province,age gorup and weight.csv
+============================================================
+
+SELECT
+    province,
+    age_group,
+    weight
+FROM province_age_profile
+ORDER BY province, weight DESC;
+
+
+============================================================
+9) which age group holds the most amount of policies by province.csv
+============================================================
+
+SELECT DISTINCT ON (province)
+    province,
+    age_group,
+    weight
+FROM province_age_profile
+ORDER BY province, weight DESC;
+
+
+============================================================
+10) province,lapse rate with avg age of policy holders
+    combining data from both policies table and province age profile table.csv
+============================================================
+
+SELECT
+    p.province,
+    ROUND(100.0 * AVG(p.lapsed), 2) AS policy_lapse_rate_pct,
+    ROUND(AVG(p.age)::numeric, 2) AS avg_age,
+    ROUND(AVG(a.weight)::numeric, 2) AS avg_weight
+FROM policies p
+LEFT JOIN province_age_profile a
+    ON p.province = a.province
+GROUP BY p.province
+ORDER BY policy_lapse_rate_pct DESC;
+
+
+============================================================
+11) return_code,rows,distinct_metrics.csv
+============================================================
+
+SELECT
+    return_code,
+    COUNT(*) AS _rows_,
+    COUNT(DISTINCT data_point_address_label) AS distinct_metrics
+FROM life_insurance_data
+GROUP BY return_code;
+
+
+============================================================
+12) fiscal quarter,data point address label with measure value.csv
+============================================================
+
+SELECT
+    fiscal_quarter,
+    data_point_address_label,
+    measure_value
+FROM life_insurance_data
+ORDER BY ABS(measure_value) DESC
+LIMIT 50;
+
+
+Optional filter if you only want premium / policy / contract labels:
+
+SELECT
+    fiscal_quarter,
+    data_point_address_label,
+    measure_value
+FROM life_insurance_data
+WHERE data_point_address_label ILIKE '%premium%'
+   OR data_point_address_label ILIKE '%policy%'
+   OR data_point_address_label ILIKE '%contract%'
+   OR data_point_address_label ILIKE '%lapse%'
+ORDER BY ABS(measure_value) DESC
+LIMIT 50;
+
+
+============================================================
+Notes
+============================================================
+
+- ROUND(...::numeric, 2) is used so PostgreSQL accepts rounding cleanly.
+- lapsed is stored as 0/1, so AVG(lapsed) becomes the lapse rate.
+- annual premium risk = monthly premium of lapsed policies x 12.
+- weight in province_age_profile is population share, not lapse rate.
