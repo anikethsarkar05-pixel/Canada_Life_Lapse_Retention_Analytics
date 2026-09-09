@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/32026417/README.md)
+[README.md](https://github.com/user-attachments/files/32028535/README.md)
 # ☀️ Sun Life Insurance Analytics
 
 ### Policy lapse. Premium at risk. Real analyst workflow.
@@ -19,30 +19,32 @@ This is the main dashboard in `Sunlife Analytics.twb` / `.twbx`.
 
 ![Lapse and Retention Dashboard](Lapse%20And%20Retention%20Dashboard.png)
 
-### What you are looking at
+### 👀 What you are looking at
 
 At the top are the book-level KPIs:
 
-- **Total Policies:** 5,000
-- **Total Lapsed:** 577
-- **Lapse Rate:** 11.54%
-- **Retention Rate:** 88.46%
-- **Average Premium:** 136.62
-- **Annual Premium at Risk:** about $949,471
+- 📦 **Total Policies:** 5,000
+- 🔻 **Total Lapsed:** 577
+- ⚠️ **Lapse Rate:** 11.54%
+- ✅ **Retention Rate:** 88.46%
+- 💵 **Average Premium:** 136.62
+- 🔥 **Annual Premium at Risk:** about $949,471
 
-The dashed **Book 11.54%** line on the charts is the overall lapse rate. Bars above that line are higher-risk segments. Bars below it are doing better than the book average.
+📏 The dashed **Book 11.54%** line on the charts is the overall lapse rate.  
+📈 Bars above that line = higher-risk segments.  
+📉 Bars below it = doing better than the book average.
 
 Then the charts break the story down:
 
-1. **Lapse Rate by Missed Payments** — more missed payments, higher lapse risk  
-2. **Lapse by Product Type** — Term / Whole / Critical Illness / Universal Life  
-3. **Lapse by Tenure Band** — new policies (1–3 years) lapse more than mature ones  
-4. **Lapse by Smoking Status** — smokers sit above the book average  
-5. **Lapse Rate by Payment Mode** — monthly payers lapse more than annual  
-6. **Lapse Rate by Province** — compare BC, Manitoba, Quebec, Saskatchewan, Alberta, Ontario  
-7. **Premium at Risk by Product** — where the dollars sit if policies lapse  
+1. ⏰ **Lapse Rate by Missed Payments** — more missed payments, higher lapse risk  
+2. 🛡️ **Lapse by Product Type** — Term / Whole / Critical Illness / Universal Life  
+3. 📅 **Lapse by Tenure Band** — new policies (1–3 years) lapse more than mature ones  
+4. 🚬 **Lapse by Smoking Status** — smokers sit above the book average  
+5. 💳 **Lapse Rate by Payment Mode** — monthly payers lapse more than annual  
+6. 🇨🇦 **Lapse Rate by Province** — compare BC, Manitoba, Quebec, Saskatchewan, Alberta, Ontario  
+7. 💰 **Premium at Risk by Product** — where the dollars sit if policies lapse  
 
-If you only glance at one image in this repo, make it this one.
+✨ If you only glance at one image in this repo, make it this one.
 
 ---
 
@@ -87,18 +89,18 @@ Think of it as a practice book of business: realistic enough to analyze, honest 
 
 ## 🧭 How to walk through the dashboard
 
-### 1️⃣ Start at the KPI banners
-Total policies, lapsed count, lapse rate, retention rate, average premium, and annual premium at risk.
+### 1️⃣ 🏁 Start at the KPI banners
+📦 Total policies • 🔻 Lapsed count • ⚠️ Lapse rate • ✅ Retention rate • 💵 Average premium • 🔥 Annual premium at risk
 
-### 2️⃣ Then check the breakdowns
-Product type • Province • Payment mode • Smoking status • Tenure
+### 2️⃣ 🔍 Then check the breakdowns
+🛡️ Product type • 🇨🇦 Province • 💳 Payment mode • 🚬 Smoking status • 📅 Tenure
 
 Saskatchewan is worth a closer look 🌾 — this project was built with Regina in mind.
 
-### 3️⃣ Then look at the drivers
-Missed payments and newer policies are the clearest early-warning signals.
+### 3️⃣ 🚨 Then look at the drivers
+⏰ Missed payments and 🆕 newer policies are the clearest early-warning signals.
 
-### 4️⃣ Then check premium at risk by product
+### 4️⃣ 💸 Then check premium at risk by product
 This shows where lapse hurts financially, not just by rate.
 
 ---
