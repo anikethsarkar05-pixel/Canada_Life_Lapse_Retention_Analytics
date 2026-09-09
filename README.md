@@ -1,5 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31976489/README.md)
-
+[README.md](https://github.com/user-attachments/files/32026417/README.md)
 # ☀️ Sun Life Insurance Analytics
 
 ### Policy lapse. Premium at risk. Real analyst workflow.
@@ -11,6 +10,39 @@ People buy a policy. Then some of them stop paying. That moment is called a **la
 I built this project to explore that problem the way a data analyst would.
 
 It started as preparation for the **Sun Life booth at the Regina career fair**. I wanted more than a resume bullet. I wanted a full workflow: gather public data, clean it, ask retention questions in SQL, and turn the answers into a dashboard someone can actually read.
+
+---
+
+## 📊 Lapse and Retention Dashboard
+
+This is the main dashboard in `Sunlife Analytics.twb` / `.twbx`.
+
+![Lapse and Retention Dashboard](Lapse%20And%20Retention%20Dashboard.png)
+
+### What you are looking at
+
+At the top are the book-level KPIs:
+
+- **Total Policies:** 5,000
+- **Total Lapsed:** 577
+- **Lapse Rate:** 11.54%
+- **Retention Rate:** 88.46%
+- **Average Premium:** 136.62
+- **Annual Premium at Risk:** about $949,471
+
+The dashed **Book 11.54%** line on the charts is the overall lapse rate. Bars above that line are higher-risk segments. Bars below it are doing better than the book average.
+
+Then the charts break the story down:
+
+1. **Lapse Rate by Missed Payments** — more missed payments, higher lapse risk  
+2. **Lapse by Product Type** — Term / Whole / Critical Illness / Universal Life  
+3. **Lapse by Tenure Band** — new policies (1–3 years) lapse more than mature ones  
+4. **Lapse by Smoking Status** — smokers sit above the book average  
+5. **Lapse Rate by Payment Mode** — monthly payers lapse more than annual  
+6. **Lapse Rate by Province** — compare BC, Manitoba, Quebec, Saskatchewan, Alberta, Ontario  
+7. **Premium at Risk by Product** — where the dollars sit if policies lapse  
+
+If you only glance at one image in this repo, make it this one.
 
 ---
 
@@ -28,9 +60,11 @@ Those are practical questions. Not buzzwords.
 
 | File / folder | What it is |
 |---|---|
-| 📊 `Sunlife Analytics.twbx` | Tableau workbook — open this to see the dashboard |
+| 📊 `Sunlife Analytics.twb` / `.twbx` | Tableau workbook with the Lapse and Retention Dashboard |
+| 🖼️ `Lapse And Retention Dashboard.png` | Screenshot of the main dashboard |
 | 📂 CSV folder | SQL extracts for each business question |
-| 📝 SQL notes | Formulas used to pull those extracts |
+| 🧾 `policies.csv` | Row-level policy book used by the workbook |
+| 📝 `Sql notes.txt` | Formulas used to pull the extracts |
 | 📘 `README.md` | You’re reading it |
 
 ---
@@ -53,26 +87,19 @@ Think of it as a practice book of business: realistic enough to analyze, honest 
 
 ## 🧭 How to walk through the dashboard
 
-### 1️⃣ Start at the top
-You’ll see:
-- Total policies
-- Lapse rate
-- Retention rate
-- Average premium
-- Annual premium at risk
+### 1️⃣ Start at the KPI banners
+Total policies, lapsed count, lapse rate, retention rate, average premium, and annual premium at risk.
 
 ### 2️⃣ Then check the breakdowns
-Product type • Province • Payment mode • Smoker status • Tenure
+Product type • Province • Payment mode • Smoking status • Tenure
 
 Saskatchewan is worth a closer look 🌾 — this project was built with Regina in mind.
 
 ### 3️⃣ Then look at the drivers
-Missed payments, newer policies, and monthly billing tend to matter most.  
-Those charts feel closest to real retention work.
+Missed payments and newer policies are the clearest early-warning signals.
 
-### 4️⃣ OSFI context
-Company-level public filings — not customer-level outcomes.  
-They sit beside the policy analysis to show the work is grounded in real published data.
+### 4️⃣ Then check premium at risk by product
+This shows where lapse hurts financially, not just by rate.
 
 ---
 
@@ -109,4 +136,4 @@ It is the kind of work a data analyst does when the business asks a simple quest
 
 ---
 
-⭐ If you’re a recruiter or reviewer: open `Sunlife Analytics.twbx` in Tableau, then skim the CSV folder to see the SQL-backed answers behind the charts.
+⭐ If you’re a recruiter or reviewer: look at the dashboard screenshot above first, then open `Sunlife Analytics.twbx` in Tableau (or the Tableau Public link if available), then skim the CSV folder for the SQL-backed extracts behind the charts.
