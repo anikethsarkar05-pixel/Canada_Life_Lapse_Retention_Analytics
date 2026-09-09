@@ -28,7 +28,7 @@ Those are practical questions. Not buzzwords.
 
 | File / folder | What it is |
 |---|---|
-| 📊 `Sunlife Analytics.twb` | Tableau workbook — open this to see the dashboard |
+| 📊 `Sunlife Analytics.twbx` | Tableau workbook — open this to see the dashboard |
 | 📂 CSV folder | SQL extracts for each business question |
 | 📝 SQL notes | Formulas used to pull those extracts |
 | 📘 `README.md` | You’re reading it |
@@ -109,4 +109,4 @@ It is the kind of work a data analyst does when the business asks a simple quest
 
 ---
 
-⭐ If you’re a recruiter or reviewer: open `Sunlife Analytics.twb` in Tableau, then skim the CSV folder to see the SQL-backed answers behind the charts.
+⭐ If you’re a recruiter or reviewer: open `Sunlife Analytics.twbx` in Tableau, then skim the CSV folder to see the SQL-backed answers behind the charts.
