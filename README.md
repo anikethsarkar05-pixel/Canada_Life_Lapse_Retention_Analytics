@@ -28,7 +28,7 @@ Those are practical questions. Not buzzwords.
 
 | File / folder | What it is |
 |---|---|
-| 📊 `Book1.twb` | Tableau workbook — open this to see the dashboard |
+| 📊 `Sunlife Analytics.twb` | Tableau workbook — open this to see the dashboard |
 | 📂 CSV folder | SQL extracts for each business question |
 | 📝 SQL notes | Formulas used to pull those extracts |
 | 📘 `README.md` | You’re reading it |
