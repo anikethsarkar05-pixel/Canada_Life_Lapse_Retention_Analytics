@@ -64,7 +64,7 @@
 |---|---|
 | 📊 `Canada_Life_Lapse_Retention_Analytics.twb` / `.twbx` | Tableau workbook with the Lapse and Retention Dashboard |
 | 🖼️ `Lapse And Retention Dashboard.png` | Screenshot of the main dashboard |
-| 📂 `sql_extracts` | SQL extracts for each business question |
+| 📂 `CSV files,extracted data using sql formulas` | SQL extracts for each business question |
 | 🧾 `policies.csv` | Row-level policy book used by the workbook |
 | 📝 `sql_notes.txt` | Formulas used to pull the extracts |
 | 📘 `README.md` | You’re reading it |
@@ -151,4 +151,4 @@
 
 ---
 
-⭐ If you’re a recruiter or reviewer: look at the dashboard screenshot above first, then open `Canada_Life_Lapse_Retention_Analytics.twbx` in Tableau (or the Tableau Public link if available), then skim the `sql_extracts` folder for the SQL-backed files behind the charts.
+⭐ If you’re a recruiter or reviewer: look at the dashboard screenshot above first, then open `Canada_Life_Lapse_Retention_Analytics.twbx` in Tableau (or the Tableau Public link if available), then skim the `CSV files,extracted data using sql formulas` folder for the SQL-backed files behind the charts.
