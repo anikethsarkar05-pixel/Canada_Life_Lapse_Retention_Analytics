@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/32135886/README.md)
+[README.md](https://github.com/user-attachments/files/32135953/README.md)
 # 🇨🇦 Canadian Life Insurance Lapse & Retention Analytics
 
 ### 📉 Policy lapse. 💵 Premium at risk. 🧠 Real analyst workflow.
@@ -18,19 +18,6 @@
 🖼️ This is the main dashboard in `Canada_Life_Lapse_Retention_Analytics.twb` / `.twbx`.
 
 ![Canadian Life Insurance Lapse & Retention Analytics Dashboard](Dashboard.png)
-
-### 🎥 Dashboard walkthrough video
-
-▶️ Watch the walkthrough below:
-
-<video src="Dashboard_Walkthrough.mp4" controls width="100%">
-  Sorry, your browser doesn’t support embedded videos.
-  <a href="Dashboard_Walkthrough.mp4">Download Dashboard_Walkthrough.mp4</a>
-</video>
-
-📁 File: [`Dashboard_Walkthrough.mp4`](Dashboard_Walkthrough.mp4)
-
-> 📌 Tip: if GitHub won’t play/upload the video because it’s large, host it on YouTube/Drive and replace this section with that link.
 
 ### 👀 What you are looking at
 
@@ -77,10 +64,9 @@
 |---|---|
 | 📊 `Canada_Life_Lapse_Retention_Analytics.twb` / `.twbx` | Tableau workbook with the Lapse and Retention Dashboard |
 | 🖼️ `Dashboard.png` | Screenshot of the main dashboard |
-| 🎥 `Dashboard_Walkthrough.mp4` | Video walkthrough of the dashboard |
-| 📂 `sql_extracts` | SQL extracts for each business question |
+| 📂 `CSV files,extracted data using sql formulas` | SQL extracts for each business question |
 | 🧾 `policies.csv` | Row-level policy book used by the workbook |
-| 📝 `sql_notes.txt` | Formulas used to pull the extracts |
+| 📝 `Sql notes.txt` | Formulas used to pull the extracts |
 | 📘 `README.md` | You’re reading it |
 
 ---
@@ -165,4 +151,4 @@
 
 ---
 
-⭐ If you’re a recruiter or reviewer: look at `Dashboard.png` first, watch `Dashboard_Walkthrough.mp4`, then open `Canada_Life_Lapse_Retention_Analytics.twbx` in Tableau (or Tableau Public), then skim the `sql_extracts` folder for the SQL-backed files behind the charts.
+⭐ If you’re a recruiter or reviewer: look at `Dashboard.png` first, then open `Canada_Life_Lapse_Retention_Analytics.twbx` in Tableau (or Tableau Public), then skim the `CSV files,extracted data using sql formulas` folder for the SQL-backed files behind the charts.
