@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/32135953/README.md)
+[README.md](https://github.com/user-attachments/files/32429434/README.md)
 # 🇨🇦 Canadian Life Insurance Lapse & Retention Analytics
 
 ### 📉 Policy lapse. 💵 Premium at risk. 🧠 Real analyst workflow.
@@ -10,6 +10,15 @@
 🛠️ I built this project to explore that problem the way a data analyst would.
 
 🚀 I wanted more than a resume bullet. I wanted a full workflow: gather public Canadian insurance data, clean it, ask retention questions in SQL, and turn the answers into a dashboard someone can actually read.
+
+---
+
+## 🔗 Live links
+
+- 🎥 **LinkedIn video walkthrough:** https://lnkd.in/p/gWuGTFZ4
+- 📊 **Tableau Public dashboard:** https://public.tableau.com/views/CanadianLifeInsuranceLapseandRetentionAnalytics/LapseandRetention?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+- 📗 **Microsoft Excel dashboard:** https://1drv.ms/x/c/ac0298cee70fbb68/IQBM83YW4hlKSbtXvrn8QSNLAQAANDczAVOMyW5aMMHSmME?e=jtmLq5
+- 👤 **LinkedIn profile:** https://www.linkedin.com/in/aniketh-sarkar-707a99231
 
 ---
 
@@ -151,4 +160,5 @@
 
 ---
 
-⭐ If you’re a recruiter or reviewer: look at `Dashboard.png` first, then open `Canada_Life_Lapse_Retention_Analytics.twbx` in Tableau (or Tableau Public), then skim the `CSV files,extracted data using sql formulas` folder for the SQL-backed files behind the charts.
+⭐ If you’re a recruiter or reviewer: start with the [video walkthrough](https://lnkd.in/p/gWuGTFZ4), then the live [Tableau Public dashboard](https://public.tableau.com/views/CanadianLifeInsuranceLapseandRetentionAnalytics/LapseandRetention?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) or the [Excel version](https://1drv.ms/x/c/ac0298cee70fbb68/IQBM83YW4hlKSbtXvrn8QSNLAQAANDczAVOMyW5aMMHSmME?e=jtmLq5). Then look at `Dashboard.png`, open `Canada_Life_Lapse_Retention_Analytics.twbx` in Tableau (or Tableau Public), skim the `CSV files,extracted data using sql formulas` folder for the SQL-backed files behind the charts, and visit my [LinkedIn profile](https://www.linkedin.com/in/aniketh-sarkar-707a99231).
+
